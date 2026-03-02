@@ -6,7 +6,25 @@
   <title>Bulwark — Real-Time Monitoring and Kill Switch for AI Agents</title>
   <meta name="description" content="Bulwark monitors your autonomous AI agents in real-time. Detect anomalous behavior, enforce safety boundaries, and stop rogue agents instantly. Datadog for AI Safety.">
   <meta name="keywords" content="AI agent monitoring, AI safety, AI kill switch, autonomous AI observability, AI containment, agentic AI monitoring">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path d='M50 8L15 25v30c0 22 15 35 35 40 20-5 35-18 35-40V25L50 8z' fill='%2338bda2'/><path d='M50 20L25 32v22c0 16 11 26 25 30 14-4 25-14 25-30V32L50 20z' fill='%230f172a'/><path d='M45 55l-10-10 5-5 5 5 15-15 5 5z' fill='%2338bda2'/></svg>" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='12' fill='%2306080d'/><path d='M50 15 L80 30 V55 C80 72 67 85 50 90 C33 85 20 72 20 55 V30 Z' fill='none' stroke='%2338bda2' stroke-width='5'/><path d='M38 52 L47 61 L63 42' fill='none' stroke='%2338bda2' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/></svg>">
+
+  <!-- Open Graph (Facebook, LinkedIn) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Bulwark — Your AI agents are running. Who's watching them?">
+  <meta property="og:description" content="Real-time monitoring and kill switch for AI agents. See everything your agents do. Stop them when they go wrong.">
+  <meta property="og:url" content="https://bulwark.live">
+  <meta property="og:site_name" content="Bulwark">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Bulwark — Datadog for AI Safety">
+  <meta name="twitter:description" content="Real-time monitoring and kill switch for AI agents. See everything. Stop anything.">
+  <meta name="twitter:site" content="@BulwarkAI">
+
+  <!-- Note: Add og:image and twitter:image once we have an OG image asset -->
+  <!-- <meta property="og:image" content="https://bulwark.live/og-image.png"> -->
+  <!-- <meta name="twitter:image" content="https://bulwark.live/og-image.png"> -->
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -555,7 +573,7 @@
       font-weight: 600;
     }
 
-    /* ---- Final CTA / Early Access ---- */
+    /* ---- Final CTA / Waitlist ---- */
     .final-cta {
       padding: 7rem 2rem 8rem;
       text-align: center;
@@ -720,7 +738,7 @@
       <span class="logo-icon"></span>
       Bulwark
     </a>
-    <a href="#early-access" class="nav-cta">Request Early Access</a>
+    <a href="#waitlist" class="nav-cta">Request Early Access</a>
   </nav>
 
   <!-- Hero -->
@@ -730,7 +748,7 @@
       <h1>Your AI agents are running.<br><span class="highlight">Who's watching them?</span></h1>
       <p class="hero-sub">See everything your AI agents do. Stop them when they go wrong.</p>
       <div class="hero-cta">
-        <a href="#early-access" class="btn-primary">
+        <a href="#waitlist" class="btn-primary">
           Request Early Access
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
         </a>
@@ -836,17 +854,17 @@
     </div>
   </section>
 
-  <!-- Final CTA / Early Access -->
-  <section class="final-cta" id="early-access">
+  <!-- Final CTA / Waitlist -->
+  <section class="final-cta" id="waitlist">
     <div class="container">
       <h2 class="reveal">Don't wait for a rogue agent<br>to be your wake-up call.</h2>
       <p class="sub reveal reveal-delay-1">Now accepting design partners. Free tier for startups.</p>
 
       <form class="email-form reveal reveal-delay-2" id="waitlist-form">
-        <input type="email" name="email" placeholder="you@company.com" required aria-label="Email address">
-        <button type="submit">Request Early Access</button>
+        <input type="email" name="email" id="waitlist-email" placeholder="you@company.com" required aria-label="Email address">
+        <button type="submit" id="waitlist-btn">Request Early Access</button>
       </form>
-      <p class="form-note reveal reveal-delay-3" id="form-status">No spam. No credit card. We reply within 24 hours.</p>
+      <p class="form-note reveal reveal-delay-3" id="form-message">No spam. No credit card. Just early access.</p>
 
     </div>
   </section>
@@ -871,39 +889,53 @@
         });
       }, { threshold: 0.15 });
       reveals.forEach(el => observer.observe(el));
-    });
 
-    // Waitlist form submission
-    const API_URL = 'https://api.bulwark.live';
-    document.getElementById('waitlist-form').addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const btn = e.target.querySelector('button');
-      const status = document.getElementById('form-status');
-      const email = e.target.email.value;
+      // Waitlist form submission
+      const form = document.getElementById('waitlist-form');
+      const btn = document.getElementById('waitlist-btn');
+      const msg = document.getElementById('form-message');
+      const emailInput = document.getElementById('waitlist-email');
 
-      btn.disabled = true;
-      btn.textContent = 'Submitting...';
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const email = emailInput.value.trim();
+        if (!email) return;
 
-      try {
-        const res = await fetch(`${API_URL}/v1/waitlist`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email }),
-        });
-        if (res.ok) {
-          btn.textContent = 'You\'re In';
-          status.textContent = 'We\'ll reach out within 24 hours.';
-          status.style.color = '#00ffd5';
-          e.target.email.value = '';
-        } else {
-          throw new Error('Request failed');
+        btn.disabled = true;
+        btn.textContent = 'Submitting...';
+
+        try {
+          const res = await fetch('https://api-production-e87a.up.railway.app/v1/waitlist', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email })
+          });
+
+          if (res.ok) {
+            msg.textContent = "You're on the list. We'll be in touch soon.";
+            msg.style.color = 'var(--cyan)';
+            emailInput.value = '';
+            btn.textContent = 'You\'re In';
+          } else if (res.status === 422) {
+            msg.textContent = 'Please enter a valid email address.';
+            msg.style.color = 'var(--red)';
+            btn.textContent = 'Request Early Access';
+            btn.disabled = false;
+          } else if (res.status === 429) {
+            msg.textContent = 'Too many requests. Please try again in a moment.';
+            msg.style.color = 'var(--red)';
+            btn.textContent = 'Request Early Access';
+            btn.disabled = false;
+          } else {
+            throw new Error('Server error');
+          }
+        } catch (err) {
+          msg.textContent = 'Something went wrong. Try again or email hello@bulwark.live';
+          msg.style.color = 'var(--red)';
+          btn.textContent = 'Request Early Access';
+          btn.disabled = false;
         }
-      } catch {
-        btn.textContent = 'Request Early Access';
-        btn.disabled = false;
-        status.textContent = 'Something went wrong. Try again or email hello@bulwark.live';
-        status.style.color = '#ff4444';
-      }
+      });
     });
   </script>
 
