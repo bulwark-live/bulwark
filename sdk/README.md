@@ -97,6 +97,6 @@ print(f"Buffered: {client.buffer_size}")
 
 ## Links
 
-- [Documentation](https://docs.bulwark.ai)
-- [Dashboard](https://app.bulwark.ai)
-- [GitHub](https://github.com/bulwark-ai/bulwark)
+- [Documentation](https://docs.bulwark.live)
+- [Dashboard](https://app.bulwark.live)
+- [GitHub](https://github.com/samrat-shamim/bulwark)

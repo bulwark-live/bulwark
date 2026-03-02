@@ -47,7 +47,7 @@ class BulwarkClient:
         redact_inputs: bool = False,
         redact_outputs: bool = False,
         sample_rate: float = 1.0,
-        endpoint: str = "https://api.bulwark.ai",
+        endpoint: str = "https://api.bulwark.live",
         flush_interval_ms: int = 1000,
         kill_check_interval_s: int = 10,
     ) -> None:

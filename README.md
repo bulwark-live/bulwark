@@ -28,7 +28,7 @@ Real-time monitoring, alerting, and emergency kill switch for AI agents.
 ### 1. Start the stack
 
 ```bash
-git clone <repo-url> && cd bulwark
+git clone https://github.com/samrat-shamim/bulwark.git && cd bulwark
 docker compose up -d
 ```
 
@@ -73,7 +73,7 @@ import bulwark
 bulwark.init(
     api_key="bwk_...",
     agent_name="research-agent",
-    endpoint="http://localhost:8000",  # or https://api.bulwark.ai
+    endpoint="http://localhost:8000",  # or https://api.bulwark.live
 )
 ```
 

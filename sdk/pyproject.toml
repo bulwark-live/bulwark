@@ -10,7 +10,7 @@ readme = "README.md"
 requires-python = ">=3.9"
 license = "MIT"
 authors = [
-    { name = "Bulwark", email = "eng@bulwark.ai" },
+    { name = "Bulwark", email = "eng@bulwark.live" },
 ]
 keywords = ["ai", "agents", "safety", "monitoring", "kill-switch", "observability"]
 classifiers = [
@@ -43,7 +43,7 @@ dev = [
 packages = ["bulwark"]
 
 [project.urls]
-Homepage = "https://bulwark.ai"
-Documentation = "https://docs.bulwark.ai"
-Repository = "https://github.com/bulwark-ai/bulwark"
-Issues = "https://github.com/bulwark-ai/bulwark/issues"
+Homepage = "https://bulwark.live"
+Documentation = "https://docs.bulwark.live"
+Repository = "https://github.com/samrat-shamim/bulwark"
+Issues = "https://github.com/samrat-shamim/bulwark/issues"

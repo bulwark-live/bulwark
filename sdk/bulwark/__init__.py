@@ -37,7 +37,7 @@ def init(
     redact_inputs: bool = False,
     redact_outputs: bool = False,
     sample_rate: float = 1.0,
-    endpoint: str = "https://api.bulwark.ai",
+    endpoint: str = "https://api.bulwark.live",
     flush_interval_ms: int = 1000,
     kill_check_interval_s: int = 10,
 ) -> None:
@@ -54,7 +54,7 @@ def init(
         redact_inputs: If True, strip tool inputs before sending to API.
         redact_outputs: If True, strip tool outputs before sending to API.
         sample_rate: Fraction of events to send (0.0–1.0). Default 1.0 (all).
-        endpoint: Bulwark API URL. Default ``https://api.bulwark.ai``.
+        endpoint: Bulwark API URL. Default ``https://api.bulwark.live``.
         flush_interval_ms: How often to flush buffered events (milliseconds).
         kill_check_interval_s: How often sessions poll the kill switch (seconds).
 

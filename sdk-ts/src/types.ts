@@ -10,7 +10,7 @@ export interface BulwarkConfig {
   redactInputs?: boolean
   /** If true, strip tool outputs before sending to API. */
   redactOutputs?: boolean
-  /** Bulwark API URL. Default "https://api.bulwark.ai". */
+  /** Bulwark API URL. Default "https://api.bulwark.live". */
   endpoint?: string
   /** How often to flush buffered events in ms. Default 1000. */
   flushIntervalMs?: number

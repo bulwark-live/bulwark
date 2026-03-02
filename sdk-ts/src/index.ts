@@ -62,7 +62,7 @@ export function init(config: BulwarkConfig): void {
     apiKey: config.apiKey,
     agentName: config.agentName,
     environment: config.environment ?? 'production',
-    endpoint: config.endpoint ?? 'https://api.bulwark.ai',
+    endpoint: config.endpoint ?? 'https://api.bulwark.live',
     redactInputs: config.redactInputs ?? false,
     redactOutputs: config.redactOutputs ?? false,
     flushIntervalMs: config.flushIntervalMs ?? 1000,
