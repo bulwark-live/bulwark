@@ -99,4 +99,4 @@ print(f"Buffered: {client.buffer_size}")
 
 - [Documentation](https://docs.bulwark.live)
 - [Dashboard](https://app.bulwark.live)
-- [GitHub](https://github.com/samrat-shamim/bulwark)
+- [GitHub](https://github.com/bulwark-live/bulwark)

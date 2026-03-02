@@ -45,5 +45,5 @@ packages = ["bulwark"]
 [project.urls]
 Homepage = "https://bulwark.live"
 Documentation = "https://docs.bulwark.live"
-Repository = "https://github.com/samrat-shamim/bulwark"
-Issues = "https://github.com/samrat-shamim/bulwark/issues"
+Repository = "https://github.com/bulwark-live/bulwark"
+Issues = "https://github.com/bulwark-live/bulwark/issues"

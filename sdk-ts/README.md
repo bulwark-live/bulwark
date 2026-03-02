@@ -68,5 +68,5 @@ Check if the session has been killed via the dashboard.
 ## Links
 
 - [Documentation](https://docs.bulwark.live)
-- [GitHub](https://github.com/samrat-shamim/bulwark)
+- [GitHub](https://github.com/bulwark-live/bulwark)
 - [Python SDK](https://pypi.org/project/bulwark-ai/)

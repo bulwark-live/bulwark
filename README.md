@@ -28,7 +28,7 @@ Real-time monitoring, alerting, and emergency kill switch for AI agents.
 ### 1. Start the stack
 
 ```bash
-git clone https://github.com/samrat-shamim/bulwark.git && cd bulwark
+git clone https://github.com/bulwark-live/bulwark.git && cd bulwark
 docker compose up -d
 ```
 
