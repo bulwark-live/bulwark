@@ -905,7 +905,7 @@
         btn.textContent = 'Submitting...';
 
         try {
-          const res = await fetch('https://api-production-e87a.up.railway.app/v1/waitlist', {
+          const res = await fetch('https://api.bulwark.live/v1/waitlist', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email })
