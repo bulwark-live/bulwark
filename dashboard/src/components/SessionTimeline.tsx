@@ -29,7 +29,7 @@ function EventNode({ event }: { event: Event }) {
   const p = event.payload as Record<string, unknown>
   const color = statusColors[event.status] || 'border-gray-700 bg-gray-900'
 
-  let title = event.event_type
+  let title: string = event.event_type
   let detail = ''
   switch (event.event_type) {
     case 'tool_call':

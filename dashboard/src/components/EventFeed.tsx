@@ -1,6 +1,6 @@
 import { useRef, useEffect, useState } from 'react'
 import { useEvents } from '../api/client'
-import { Search, Globe, Code, Cpu, FileText, Play, Square } from 'lucide-react'
+import { Search, Code, Cpu, FileText, Play, Square } from 'lucide-react'
 import type { Event } from '../types'
 
 const eventIcons: Record<string, typeof Search> = {
